@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .liuyanban {
+            width: 400px;
+            margin: 200px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="liuyanban">
+        <textarea  id="board" cols="30" rows="10"></textarea>
+        <br/>
+        <button>发布</button>
+
+        <ul>
+
+        </ul>
+
+    </div>
+
+    <script>
+        var button = document.querySelector("button");
+        var ul = document.querySelector("ul");
+        button.onclick = function () {
+            var textarea = document.querySelector("textarea");
+            if(textarea.value === ''){
+                alert("请输入内容！");
+                return false;
+            }else{
+                var li = document.createElement("li");
+                li.innerText = textarea.value;
+                ul.insertBefore(li,ul.children[0]);
+                textarea.value = "";
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div>
+        <p>p标签</p>
+    </div>
+
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+        <li>555</li>
+        <li>666</li>
+    </ul>
+
+
+    <script>
+        var p = document.querySelector('p');
+        console.log(p.parentNode);
+
+        var uls = document.querySelector('ul');
+        console.log(uls.childNodes);
+        // text类型，nodeType为3
+        console.log(uls.childNodes[0].nodeType);
+        // li 类型，nodeType为1
+        console.log(uls.childNodes[1].nodeType);
+
+        // 直接获得子元素
+        console.log(uls.children);
+
+    </script>
+</body>
+</html>

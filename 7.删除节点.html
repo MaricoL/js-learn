@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul>
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+</ul>
+
+<button>删除节点</button>
+
+
+<script>
+
+    var ul = document.querySelector("ul");
+    var button = document.querySelector("button");
+
+    button.onclick = function () {
+        ul.removeChild(ul.children[0]);
+        if (ul.children.length <= 0) {
+            this.disabled = true;
+        }
+    };
+</script>
+</body>
+</html>

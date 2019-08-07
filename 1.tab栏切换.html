@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .tab {
+            margin: 200px;
+            width: 600px;
+            /*height: 600px;*/
+            border: 1px solid red;
+        }
+
+        .tab .nav{
+            height: 50px;
+        }
+
+        .nav ul li {
+            float: left;
+            text-align: center;
+
+        }
+
+        .nav ul li a {
+            display: block;
+            width: 200px;
+            line-height: 51px;
+            text-decoration: none;
+            color: black;
+        }
+
+
+
+        .nav ul li.current a{
+            background-color: red;
+            color: white;
+        }
+
+        .item {
+            height: 200px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <div class="nav">
+            <ul>
+                <li class="current"><a href="javascript:void(0);">red</a></li>
+                <li><a href="javascript:void(0);">yellow</a></li>
+                <li><a href="javascript:void(0);">green</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="item" style="background-color:red;display: block;">
+
+            </div>
+            <div class="item" style="background-color:yellow;">
+
+            </div>
+            <div class="item" style="background-color:green;">
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var lis = document.querySelector(".nav").querySelectorAll("li");
+        var items = document.querySelectorAll(".item");
+
+
+        for(var i = 0 ; i < lis.length ; i++){
+            lis[i].setAttribute('index',i);
+            lis[i].onclick = function(){
+                for(var i = 0 ; i < lis.length ; i++){
+                    lis[i].className = "";
+                }
+                this.className = "current";
+                for(var i = 0 ; i < lis.length ; i++){
+                    items[i].style.display = "none";
+                }
+                var index = this.getAttribute('index');
+                items[index].style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

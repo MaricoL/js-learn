@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+
+
+        ul.nav {
+            margin: 200px;
+            width: 800px;
+            height: 50px;
+            border: 1px solid red;
+        }
+
+        ul.nav li {
+            float: left;
+            width: 200px;
+            text-align: center;
+        }
+
+        ul.nav li a {
+            display: block;
+            line-height: 50px;
+        }
+
+        ul.nav ul{
+            display: none;
+        }
+
+        ul.nav ul li {
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid red;
+
+        }
+
+    </style>
+</head>
+<body>
+
+        <ul class="nav">
+            <li>
+                <a href="javascript:void(0);">菜单1</a>
+                <ul>
+                    <li>子菜单1</li>
+                    <li>子菜单2</li>
+                    <li>子菜单3</li>
+                    <li>子菜单4</li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">菜单2</a>
+                <ul>
+                    <li>子菜单1</li>
+                    <li>子菜单2</li>
+                    <li>子菜单3</li>
+                    <li>子菜单4</li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">菜单3</a>
+                <ul>
+                    <li>子菜单1</li>
+                    <li>子菜单2</li>
+                    <li>子菜单3</li>
+                    <li>子菜单4</li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">菜单4</a>
+                <ul>
+                    <li>子菜单1</li>
+                    <li>子菜单2</li>
+                    <li>子菜单3</li>
+                    <li>子菜单4</li>
+                </ul>
+            </li>
+        </ul>
+
+
+    <script>
+        var navList = document.querySelector(".nav");
+        var lis = navList.children;
+        for(var i = 0 ; i < lis.length ; i++){
+            lis[i].onmouseover = function(){
+                this.children[1].style.display = "block";
+            }
+
+            lis[i].onmouseout = function(){
+                this.children[1].style.display = "none";
+            }
+        }
+
+    </script>
+
+
+</body>
+</html>
