@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        p {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <p>跟随鼠标移动</p>
+
+
+
+    <script>
+        var p = document.querySelector("p");
+
+        document.addEventListener("mousemove",function (e) {
+            p.style.left = e.clientX + "px";
+            p.style.top = e.clientY + "px";
+        })
+
+    </script>
+</body>
+</html>

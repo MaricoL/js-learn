@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+    document.addEventListener("click",function (e) {
+        /* 1. 鼠标距离可视区的位置*/
+        alert(e.clientX);
+        alert(e.clientY);
+
+        /* 2. 鼠标距离页面的位置*/
+        alert(e.pageX);
+        alert(e.pageY);
+
+        /* 3. 鼠标距离屏幕的位置*/
+        alert(e.screenX);
+        alert(e.screenY);
+    })
+</script>
+</body>
+</html>
