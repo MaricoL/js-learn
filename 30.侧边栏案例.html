@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        .sideBar {
+            width: 50px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            top: 300px;
+            right: 600px;
+        }
+        span {
+            position: absolute;
+            bottom: 0;
+            display: none;
+        }
+        .nav {
+            width: 1000px;
+            height: 200px;
+            background-color: black;
+        }
+        .head {
+            width: 1000px;
+            height: 400px;
+            background-color: red;
+        }
+
+        .content {
+            width: 1000px;
+            height: 800px;
+            background-color: blue;
+        }
+
+        .footer {
+            width: 1000px;
+            height: 400px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sideBar">
+        <span>返回顶部</span>
+    </div>
+
+    <div class="nav">导航</div>
+    <div class="head">首部</div>
+    <div class="content">内容区</div>
+    <div class="footer">尾部</div>
+
+    <script>
+        var sideBar = document.querySelector(".sideBar");
+        var head = document.querySelector(".head");
+        var content = document.querySelector(".content");
+        var span = document.querySelector("span");
+        var headOffSetTop = head.offsetTop;
+        var contentOffSetTop = content.offsetTop;
+        var sideBarOriginTop = sideBar.offsetTop;
+        var sideBarTop = sideBar.offsetTop - headOffSetTop;
+
+        document.addEventListener("scroll",function (e) {
+            /* pageYOffset：页面被卷上去的高度 */
+            var h = window.pageYOffset;
+            // console.log(sideBar.offsetTop - headOffSetTop);
+            if (h >= headOffSetTop) {
+                sideBar.style.position = "fixed";
+                sideBar.style.top = sideBarTop + "px";
+            }else{
+                sideBar.style.position = "absolute";
+                sideBar.style.top = sideBarOriginTop + "px";
+            }
+            if (h >= contentOffSetTop) {
+                span.style.display = "inline";
+            }else{
+                span.style.display = "none";
+            }
+        });
+
+
+    </script>
+</body>
+</html>
