@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <style>
+
+        .out {
+            position: relative;
+            top:100px;
+            left: 30%;
+            width: 400px;
+            height: 400px;
+            border: 1px solid red;
+            cursor: move;
+        }
+        .zzc {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 150px;
+            width: 150px;
+            background-color: yellow;
+            opacity: 0.5;
+            display: none;
+        }
+        .big {
+            position: absolute;
+            top: 0;
+            left: 420px;
+            width: 500px;
+            height: 500px;
+            overflow: hidden;
+            display: none;
+        }
+        .bigImg {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="out">
+        <img src="images/small.jpg" width="100%"/>
+        <div class="zzc"></div>
+        <div class="big">
+            <img src="images/big.jpg" class="bigImg">
+        </div>
+    </div>
+
+
+    <script>
+
+        var out = document.querySelector(".out");
+        var zzc = document.querySelector(".zzc");
+        var big = document.querySelector(".big");
+        out.addEventListener("mouseover",function (e) {
+            zzc.style.display = "block";
+            big.style.display = "block";
+        });
+        out.addEventListener("mouseout",function (e) {
+            zzc.style.display = "none";
+            big.style.display = "none";
+        });
+        out.addEventListener("mousemove",function (e) {
+            var x = e.pageX - out.offsetLeft;
+            var y = e.pageY - out.offsetTop;
+            var left = x - zzc.offsetWidth / 2;
+            var top = y - zzc.offsetHeight / 2;
+            if (left <= 0) {
+                left = 0;
+            }else if (left >= out.offsetWidth - zzc.offsetWidth) {
+                left = out.offsetWidth - zzc.offsetWidth;
+            }
+            if (top <= 0) {
+                top = 0;
+            }else if (top >= out.offsetHeight - zzc.offsetHeight) {
+                top = out.offsetHeight - zzc.offsetHeight;
+            }
+            zzc.style.left = left + "px";
+            zzc.style.top = top + "px";
+
+
+            var bigImg = document.querySelector(".bigImg");
+            var bigX = left * (bigImg.offsetWidth - big.offsetWidth) / (out.offsetWidth - zzc.offsetWidth);
+            var bigY = top * (bigImg.offsetHeight - big.offsetHeight) / (out.offsetHeight - zzc.offsetHeight);
+            bigImg.style.left = -bigX + "px";
+            bigImg.style.top = -bigY + "px";
+        });
+
+
+    </script>
+
+</body>
+</html>
