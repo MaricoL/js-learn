@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        div {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            width: 400px;
+            height: 400px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div></div>
+
+    <script>
+        var div = document.querySelector("div");
+        div.addEventListener("mousedown",function (e) {
+            // 获取鼠标在盒子内的坐标
+            var x = e.pageX - this.offsetLeft;
+            var y = e.pageY - this.offsetTop;
+            function move(e){
+                // 改变div的left和top
+                div.style.left = e.pageX - x + "px";
+                div.style.top = e.pageY - y + "px";
+            }
+            document.addEventListener("mousemove",move);
+            // 鼠标弹起，去除移动事件
+            document.addEventListener("mouseup",function () {
+                document.removeEventListener("mousemove", move);
+            })
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .father {
+            margin: 200px;
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            position: relative;
+        }
+        .son {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="father">
+        <div class="son"></div>
+    </div>
+
+<script>
+    var father = document.querySelector(".father");
+    var son = document.querySelector(".son");
+
+    /* 1. 获取元素距离带有定位的父元素的距离 */
+    console.log(father.offsetTop);
+    console.log(father.offsetLeft);
+
+    /* 2. 获取元素本身的宽高，包括padding、边框和内容本身的宽度 */
+    console.log(son.offsetWidth);
+    console.log(son.offsetHeight);
+
+    /* 3. 获取有定位的父级元素，如果父元素没有定位则返回body */
+    console.log(son.offsetParent);
+    // parentNode 直接获取最近一级的父元素
+    console.log(son.parentNode);
+
+</script>
+
+</body>
+</html>

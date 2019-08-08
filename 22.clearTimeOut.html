@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+</head>
+<body>
+<button>停止定时器</button>
+
+
+<script>
+
+    var btn = document.querySelector("button");
+
+    var time = setTimeout(function () {
+        console.log("xxxxxx");
+    }, 3000);
+    btn.addEventListener("click", function () {
+        window.clearTimeout(time);
+    });
+</script>
+</body>
+</html>
