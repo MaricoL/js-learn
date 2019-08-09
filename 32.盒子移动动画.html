@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+
+    <script>
+        var box = document.querySelector(".box");
+        var timer = window.setInterval(function(){
+            box.style.left = box.offsetLeft + 5 + "px";
+            if (box.offsetLeft >= 300) {
+                window.clearTimeout(timer);
+            }
+        },30);
+    </script>
+
+</body>
+</html>

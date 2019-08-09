@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .box {
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            position: absolute;
+            top:30%;
+        }
+    </style>
+</head>
+<body>
+
+<button class="btn500">移动到500</button>
+<button class="btn800">移动到800</button>
+<div class="box"></div>
+
+
+<script>
+    function animate(obj,target,callback) {
+        /* 先清除原来的动画效果 */
+        window.clearInterval(obj.timer);
+
+        obj.timer = window.setInterval(function(){
+
+            var step = (target - obj.offsetLeft) / 10;
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            obj.style.left = obj.offsetLeft + step + "px";
+            if (obj.offsetLeft === target) {
+                window.clearInterval(obj.timer);
+                if (callback) {
+                    callback();
+                }
+            }
+        },30);
+    }
+
+    var btn500 = document.querySelector(".btn500");
+    var btn800 = document.querySelector(".btn800");
+    var box = document.querySelector(".box");
+
+
+    btn500.addEventListener("click", function () {
+        btn800.disabled = true;
+        animate(box,500,function () {
+            btn800.disabled = false;
+            alert("移动结束");
+        });
+    });
+    btn800.addEventListener("click", function () {
+        btn500.disabled = true;
+        animate(box,800,function () {
+            btn500.disabled = false;
+            alert("移动结束");
+        });
+    });
+</script>
+
+</body>
+</html>
